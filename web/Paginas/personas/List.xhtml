@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPersonasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPersonasEmpty}" rendered="#{personasController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{personasController.items.rowCount > 0}">
+                    <h:outputText value="#{personasController.pagination.pageFirstItem + 1}..#{personasController.pagination.pageLastItem + 1}/#{personasController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{personasController.previous}" value="#{bundle.Previous} #{personasController.pagination.pageSize}" rendered="#{personasController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{personasController.next}" value="#{bundle.Next} #{personasController.pagination.pageSize}" rendered="#{personasController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{personasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_cedula}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cedula}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_apellidouno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellidouno}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_apellidodos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.apellidodos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_genero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.genero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_fechanacimiento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechanacimiento}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_telefonofijo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefonofijo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_celular}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.celular}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_fechaClinica}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaClinica}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_codigoafpFk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoafpFk}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_codigoarlFk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoarlFk}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_codigocargoFk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigocargoFk}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_codigoepsFk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoepsFk}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_codigoprofesionFk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoprofesionFk}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonasTitle_recomendadoFk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.recomendadoFk}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{personasController.prepareView}" value="#{bundle.ListPersonasViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{personasController.prepareEdit}" value="#{bundle.ListPersonasEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{personasController.destroy}" value="#{bundle.ListPersonasDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{personasController.prepareCreate}" value="#{bundle.ListPersonasCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPersonasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

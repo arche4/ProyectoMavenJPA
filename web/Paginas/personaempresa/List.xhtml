@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPersonaempresaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPersonaempresaEmpty}" rendered="#{personaempresaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{personaempresaController.items.rowCount > 0}">
+                    <h:outputText value="#{personaempresaController.pagination.pageFirstItem + 1}..#{personaempresaController.pagination.pageLastItem + 1}/#{personaempresaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{personaempresaController.previous}" value="#{bundle.Previous} #{personaempresaController.pagination.pageSize}" rendered="#{personaempresaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{personaempresaController.next}" value="#{bundle.Next} #{personaempresaController.pagination.pageSize}" rendered="#{personaempresaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{personaempresaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonaempresaTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonaempresaTitle_area}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.area}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonaempresaTitle_nitempresaFk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nitempresaFk}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonaempresaTitle_cedulaFk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cedulaFk}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{personaempresaController.prepareView}" value="#{bundle.ListPersonaempresaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{personaempresaController.prepareEdit}" value="#{bundle.ListPersonaempresaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{personaempresaController.destroy}" value="#{bundle.ListPersonaempresaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{personaempresaController.prepareCreate}" value="#{bundle.ListPersonaempresaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPersonaempresaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

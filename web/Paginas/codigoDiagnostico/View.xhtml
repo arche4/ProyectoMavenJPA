@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCodigoDiagnosticoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_idDiagnosticoCodigo}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.idDiagnosticoCodigo}" title="#{bundle.ViewCodigoDiagnosticoTitle_idDiagnosticoCodigo}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_codigo1}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.codigo1}" title="#{bundle.ViewCodigoDiagnosticoTitle_codigo1}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_diagnostico1}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.diagnostico1}" title="#{bundle.ViewCodigoDiagnosticoTitle_diagnostico1}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_codigo2}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.codigo2}" title="#{bundle.ViewCodigoDiagnosticoTitle_codigo2}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_diagnostico2}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.diagnostico2}" title="#{bundle.ViewCodigoDiagnosticoTitle_diagnostico2}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_codigo3}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.codigo3}" title="#{bundle.ViewCodigoDiagnosticoTitle_codigo3}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_diagnostico3}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.diagnostico3}" title="#{bundle.ViewCodigoDiagnosticoTitle_diagnostico3}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_codigo4}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.codigo4}" title="#{bundle.ViewCodigoDiagnosticoTitle_codigo4}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_diagnostico4}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.diagnostico4}" title="#{bundle.ViewCodigoDiagnosticoTitle_diagnostico4}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_codigo5}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.codigo5}" title="#{bundle.ViewCodigoDiagnosticoTitle_codigo5}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_diagnostico5}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.diagnostico5}" title="#{bundle.ViewCodigoDiagnosticoTitle_diagnostico5}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_codigo6}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.codigo6}" title="#{bundle.ViewCodigoDiagnosticoTitle_codigo6}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_diagnostico6}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.diagnostico6}" title="#{bundle.ViewCodigoDiagnosticoTitle_diagnostico6}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_codigo7}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.codigo7}" title="#{bundle.ViewCodigoDiagnosticoTitle_codigo7}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_diagnostico}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.diagnostico}" title="#{bundle.ViewCodigoDiagnosticoTitle_diagnostico}"/>
+                    <h:outputText value="#{bundle.ViewCodigoDiagnosticoLabel_casoIdCaso}"/>
+                    <h:outputText value="#{codigoDiagnosticoController.selected.casoIdCaso}" title="#{bundle.ViewCodigoDiagnosticoTitle_casoIdCaso}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{codigoDiagnosticoController.destroyAndView}" value="#{bundle.ViewCodigoDiagnosticoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCodigoDiagnosticoEditLink}"/>
+                <br />
+                <h:commandLink action="#{codigoDiagnosticoController.prepareCreate}" value="#{bundle.ViewCodigoDiagnosticoCreateLink}" />
+                <br />
+                <h:commandLink action="#{codigoDiagnosticoController.prepareList}" value="#{bundle.ViewCodigoDiagnosticoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCodigoDiagnosticoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

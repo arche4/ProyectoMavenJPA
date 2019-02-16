@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListCodigoDiagnosticoEmpty}" rendered="#{codigoDiagnosticoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{codigoDiagnosticoController.items.rowCount > 0}">
+                    <h:outputText value="#{codigoDiagnosticoController.pagination.pageFirstItem + 1}..#{codigoDiagnosticoController.pagination.pageLastItem + 1}/#{codigoDiagnosticoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{codigoDiagnosticoController.previous}" value="#{bundle.Previous} #{codigoDiagnosticoController.pagination.pageSize}" rendered="#{codigoDiagnosticoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{codigoDiagnosticoController.next}" value="#{bundle.Next} #{codigoDiagnosticoController.pagination.pageSize}" rendered="#{codigoDiagnosticoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{codigoDiagnosticoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_idDiagnosticoCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idDiagnosticoCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_codigo1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_diagnostico1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diagnostico1}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_codigo2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_diagnostico2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diagnostico2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_codigo3}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo3}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_diagnostico3}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diagnostico3}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_codigo4}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo4}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_diagnostico4}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diagnostico4}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_codigo5}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo5}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_diagnostico5}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diagnostico5}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_codigo6}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo6}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_diagnostico6}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diagnostico6}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_codigo7}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigo7}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_diagnostico}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diagnostico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCodigoDiagnosticoTitle_casoIdCaso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.casoIdCaso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{codigoDiagnosticoController.prepareView}" value="#{bundle.ListCodigoDiagnosticoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{codigoDiagnosticoController.prepareEdit}" value="#{bundle.ListCodigoDiagnosticoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{codigoDiagnosticoController.destroy}" value="#{bundle.ListCodigoDiagnosticoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{codigoDiagnosticoController.prepareCreate}" value="#{bundle.ListCodigoDiagnosticoCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListCodigoDiagnosticoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

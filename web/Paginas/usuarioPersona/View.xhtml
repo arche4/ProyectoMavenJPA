@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewUsuarioPersonaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewUsuarioPersonaLabel_idUsuarioPersona}"/>
+                    <h:outputText value="#{usuarioPersonaController.selected.idUsuarioPersona}" title="#{bundle.ViewUsuarioPersonaTitle_idUsuarioPersona}"/>
+                    <h:outputText value="#{bundle.ViewUsuarioPersonaLabel_personasCedula}"/>
+                    <h:outputText value="#{usuarioPersonaController.selected.personasCedula}" title="#{bundle.ViewUsuarioPersonaTitle_personasCedula}"/>
+                    <h:outputText value="#{bundle.ViewUsuarioPersonaLabel_usuarioIdUsuario}"/>
+                    <h:outputText value="#{usuarioPersonaController.selected.usuarioIdUsuario}" title="#{bundle.ViewUsuarioPersonaTitle_usuarioIdUsuario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{usuarioPersonaController.destroyAndView}" value="#{bundle.ViewUsuarioPersonaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewUsuarioPersonaEditLink}"/>
+                <br />
+                <h:commandLink action="#{usuarioPersonaController.prepareCreate}" value="#{bundle.ViewUsuarioPersonaCreateLink}" />
+                <br />
+                <h:commandLink action="#{usuarioPersonaController.prepareList}" value="#{bundle.ViewUsuarioPersonaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewUsuarioPersonaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

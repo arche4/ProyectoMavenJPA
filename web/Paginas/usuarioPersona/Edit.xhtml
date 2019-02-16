@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditUsuarioPersonaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditUsuarioPersonaLabel_idUsuarioPersona}" for="idUsuarioPersona" />
+                    <h:inputText id="idUsuarioPersona" value="#{usuarioPersonaController.selected.idUsuarioPersona}" title="#{bundle.EditUsuarioPersonaTitle_idUsuarioPersona}" required="true" requiredMessage="#{bundle.EditUsuarioPersonaRequiredMessage_idUsuarioPersona}"/>
+                    <h:outputLabel value="#{bundle.EditUsuarioPersonaLabel_personasCedula}" for="personasCedula" />
+                    <h:selectOneMenu id="personasCedula" value="#{usuarioPersonaController.selected.personasCedula}" title="#{bundle.EditUsuarioPersonaTitle_personasCedula}" required="true" requiredMessage="#{bundle.EditUsuarioPersonaRequiredMessage_personasCedula}">
+                        <f:selectItems value="#{personasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditUsuarioPersonaLabel_usuarioIdUsuario}" for="usuarioIdUsuario" />
+                    <h:selectOneMenu id="usuarioIdUsuario" value="#{usuarioPersonaController.selected.usuarioIdUsuario}" title="#{bundle.EditUsuarioPersonaTitle_usuarioIdUsuario}" required="true" requiredMessage="#{bundle.EditUsuarioPersonaRequiredMessage_usuarioIdUsuario}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{usuarioPersonaController.update}" value="#{bundle.EditUsuarioPersonaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditUsuarioPersonaViewLink}"/>
+                <br />
+                <h:commandLink action="#{usuarioPersonaController.prepareList}" value="#{bundle.EditUsuarioPersonaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditUsuarioPersonaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

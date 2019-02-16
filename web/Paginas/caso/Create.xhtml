@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCasoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_idCaso}" for="idCaso" />
+                    <h:inputText id="idCaso" value="#{casoController.selected.idCaso}" title="#{bundle.CreateCasoTitle_idCaso}" required="true" requiredMessage="#{bundle.CreateCasoRequiredMessage_idCaso}"/>
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_descripcionCaso}" for="descripcionCaso" />
+                    <h:inputText id="descripcionCaso" value="#{casoController.selected.descripcionCaso}" title="#{bundle.CreateCasoTitle_descripcionCaso}" />
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_fechaInicioAfectacion}" for="fechaInicioAfectacion" />
+                    <h:inputText id="fechaInicioAfectacion" value="#{casoController.selected.fechaInicioAfectacion}" title="#{bundle.CreateCasoTitle_fechaInicioAfectacion}" />
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_origenDictamen}" for="origenDictamen" />
+                    <h:inputText id="origenDictamen" value="#{casoController.selected.origenDictamen}" title="#{bundle.CreateCasoTitle_origenDictamen}" />
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_pcl}" for="pcl" />
+                    <h:inputText id="pcl" value="#{casoController.selected.pcl}" title="#{bundle.CreateCasoTitle_pcl}" />
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_parteAfectada}" for="parteAfectada" />
+                    <h:inputText id="parteAfectada" value="#{casoController.selected.parteAfectada}" title="#{bundle.CreateCasoTitle_parteAfectada}" />
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_diagnosticoComfirmado}" for="diagnosticoComfirmado" />
+                    <h:inputText id="diagnosticoComfirmado" value="#{casoController.selected.diagnosticoComfirmado}" title="#{bundle.CreateCasoTitle_diagnosticoComfirmado}" />
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_presuntoDiagnostico}" for="presuntoDiagnostico" />
+                    <h:inputText id="presuntoDiagnostico" value="#{casoController.selected.presuntoDiagnostico}" title="#{bundle.CreateCasoTitle_presuntoDiagnostico}" />
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_tiempoIncapacidad}" for="tiempoIncapacidad" />
+                    <h:inputText id="tiempoIncapacidad" value="#{casoController.selected.tiempoIncapacidad}" title="#{bundle.CreateCasoTitle_tiempoIncapacidad}" />
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_actuacionAdmistrativa}" for="actuacionAdmistrativa" />
+                    <h:inputText id="actuacionAdmistrativa" value="#{casoController.selected.actuacionAdmistrativa}" title="#{bundle.CreateCasoTitle_actuacionAdmistrativa}" />
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_observacion}" for="observacion" />
+                    <h:inputText id="observacion" value="#{casoController.selected.observacion}" title="#{bundle.CreateCasoTitle_observacion}" />
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{casoController.selected.estado}" title="#{bundle.CreateCasoTitle_estado}" />
+                    <h:outputLabel value="#{bundle.CreateCasoLabel_fkResponsableCaso}" for="fkResponsableCaso" />
+                    <h:selectOneMenu id="fkResponsableCaso" value="#{casoController.selected.fkResponsableCaso}" title="#{bundle.CreateCasoTitle_fkResponsableCaso}" >
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{casoController.create}" value="#{bundle.CreateCasoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{casoController.prepareList}" value="#{bundle.CreateCasoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCasoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

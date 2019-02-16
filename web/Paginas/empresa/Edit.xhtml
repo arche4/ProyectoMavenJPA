@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEmpresaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEmpresaLabel_nit}" for="nit" />
+                    <h:inputText id="nit" value="#{empresaController.selected.nit}" title="#{bundle.EditEmpresaTitle_nit}" required="true" requiredMessage="#{bundle.EditEmpresaRequiredMessage_nit}"/>
+                    <h:outputLabel value="#{bundle.EditEmpresaLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{empresaController.selected.nombre}" title="#{bundle.EditEmpresaTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.EditEmpresaLabel_sector}" for="sector" />
+                    <h:inputText id="sector" value="#{empresaController.selected.sector}" title="#{bundle.EditEmpresaTitle_sector}" />
+                    <h:outputLabel value="#{bundle.EditEmpresaLabel_actividadEconomica}" for="actividadEconomica" />
+                    <h:inputText id="actividadEconomica" value="#{empresaController.selected.actividadEconomica}" title="#{bundle.EditEmpresaTitle_actividadEconomica}" />
+                    <h:outputLabel value="#{bundle.EditEmpresaLabel_añosAtiguedad}" for="añosAtiguedad" />
+                    <h:inputText id="añosAtiguedad" value="#{empresaController.selected.añosAtiguedad}" title="#{bundle.EditEmpresaTitle_añosAtiguedad}" />
+                </h:panelGrid>
+                <h:commandLink action="#{empresaController.update}" value="#{bundle.EditEmpresaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEmpresaViewLink}"/>
+                <br />
+                <h:commandLink action="#{empresaController.prepareList}" value="#{bundle.EditEmpresaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEmpresaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

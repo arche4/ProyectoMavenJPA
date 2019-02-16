@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCasoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewCasoLabel_idCaso}"/>
+                    <h:outputText value="#{casoController.selected.idCaso}" title="#{bundle.ViewCasoTitle_idCaso}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_descripcionCaso}"/>
+                    <h:outputText value="#{casoController.selected.descripcionCaso}" title="#{bundle.ViewCasoTitle_descripcionCaso}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_fechaInicioAfectacion}"/>
+                    <h:outputText value="#{casoController.selected.fechaInicioAfectacion}" title="#{bundle.ViewCasoTitle_fechaInicioAfectacion}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_origenDictamen}"/>
+                    <h:outputText value="#{casoController.selected.origenDictamen}" title="#{bundle.ViewCasoTitle_origenDictamen}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_pcl}"/>
+                    <h:outputText value="#{casoController.selected.pcl}" title="#{bundle.ViewCasoTitle_pcl}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_parteAfectada}"/>
+                    <h:outputText value="#{casoController.selected.parteAfectada}" title="#{bundle.ViewCasoTitle_parteAfectada}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_diagnosticoComfirmado}"/>
+                    <h:outputText value="#{casoController.selected.diagnosticoComfirmado}" title="#{bundle.ViewCasoTitle_diagnosticoComfirmado}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_presuntoDiagnostico}"/>
+                    <h:outputText value="#{casoController.selected.presuntoDiagnostico}" title="#{bundle.ViewCasoTitle_presuntoDiagnostico}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_tiempoIncapacidad}"/>
+                    <h:outputText value="#{casoController.selected.tiempoIncapacidad}" title="#{bundle.ViewCasoTitle_tiempoIncapacidad}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_actuacionAdmistrativa}"/>
+                    <h:outputText value="#{casoController.selected.actuacionAdmistrativa}" title="#{bundle.ViewCasoTitle_actuacionAdmistrativa}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_observacion}"/>
+                    <h:outputText value="#{casoController.selected.observacion}" title="#{bundle.ViewCasoTitle_observacion}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_estado}"/>
+                    <h:outputText value="#{casoController.selected.estado}" title="#{bundle.ViewCasoTitle_estado}"/>
+                    <h:outputText value="#{bundle.ViewCasoLabel_fkResponsableCaso}"/>
+                    <h:outputText value="#{casoController.selected.fkResponsableCaso}" title="#{bundle.ViewCasoTitle_fkResponsableCaso}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{casoController.destroyAndView}" value="#{bundle.ViewCasoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewCasoEditLink}"/>
+                <br />
+                <h:commandLink action="#{casoController.prepareCreate}" value="#{bundle.ViewCasoCreateLink}" />
+                <br />
+                <h:commandLink action="#{casoController.prepareList}" value="#{bundle.ViewCasoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewCasoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCasoPersonaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCasoPersonaLabel_idCasoPersona}" for="idCasoPersona" />
+                    <h:inputText id="idCasoPersona" value="#{casoPersonaController.selected.idCasoPersona}" title="#{bundle.CreateCasoPersonaTitle_idCasoPersona}" required="true" requiredMessage="#{bundle.CreateCasoPersonaRequiredMessage_idCasoPersona}"/>
+                    <h:outputLabel value="#{bundle.CreateCasoPersonaLabel_casoIdCaso}" for="casoIdCaso" />
+                    <h:selectOneMenu id="casoIdCaso" value="#{casoPersonaController.selected.casoIdCaso}" title="#{bundle.CreateCasoPersonaTitle_casoIdCaso}" required="true" requiredMessage="#{bundle.CreateCasoPersonaRequiredMessage_casoIdCaso}">
+                        <f:selectItems value="#{casoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateCasoPersonaLabel_personasCedula}" for="personasCedula" />
+                    <h:selectOneMenu id="personasCedula" value="#{casoPersonaController.selected.personasCedula}" title="#{bundle.CreateCasoPersonaTitle_personasCedula}" required="true" requiredMessage="#{bundle.CreateCasoPersonaRequiredMessage_personasCedula}">
+                        <f:selectItems value="#{personasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{casoPersonaController.create}" value="#{bundle.CreateCasoPersonaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{casoPersonaController.prepareList}" value="#{bundle.CreateCasoPersonaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCasoPersonaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

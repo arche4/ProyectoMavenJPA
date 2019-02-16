@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCodigoDiagnosticoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_idDiagnosticoCodigo}" for="idDiagnosticoCodigo" />
+                    <h:inputText id="idDiagnosticoCodigo" value="#{codigoDiagnosticoController.selected.idDiagnosticoCodigo}" title="#{bundle.CreateCodigoDiagnosticoTitle_idDiagnosticoCodigo}" required="true" requiredMessage="#{bundle.CreateCodigoDiagnosticoRequiredMessage_idDiagnosticoCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_codigo1}" for="codigo1" />
+                    <h:inputText id="codigo1" value="#{codigoDiagnosticoController.selected.codigo1}" title="#{bundle.CreateCodigoDiagnosticoTitle_codigo1}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_diagnostico1}" for="diagnostico1" />
+                    <h:inputText id="diagnostico1" value="#{codigoDiagnosticoController.selected.diagnostico1}" title="#{bundle.CreateCodigoDiagnosticoTitle_diagnostico1}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_codigo2}" for="codigo2" />
+                    <h:inputText id="codigo2" value="#{codigoDiagnosticoController.selected.codigo2}" title="#{bundle.CreateCodigoDiagnosticoTitle_codigo2}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_diagnostico2}" for="diagnostico2" />
+                    <h:inputText id="diagnostico2" value="#{codigoDiagnosticoController.selected.diagnostico2}" title="#{bundle.CreateCodigoDiagnosticoTitle_diagnostico2}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_codigo3}" for="codigo3" />
+                    <h:inputText id="codigo3" value="#{codigoDiagnosticoController.selected.codigo3}" title="#{bundle.CreateCodigoDiagnosticoTitle_codigo3}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_diagnostico3}" for="diagnostico3" />
+                    <h:inputText id="diagnostico3" value="#{codigoDiagnosticoController.selected.diagnostico3}" title="#{bundle.CreateCodigoDiagnosticoTitle_diagnostico3}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_codigo4}" for="codigo4" />
+                    <h:inputText id="codigo4" value="#{codigoDiagnosticoController.selected.codigo4}" title="#{bundle.CreateCodigoDiagnosticoTitle_codigo4}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_diagnostico4}" for="diagnostico4" />
+                    <h:inputText id="diagnostico4" value="#{codigoDiagnosticoController.selected.diagnostico4}" title="#{bundle.CreateCodigoDiagnosticoTitle_diagnostico4}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_codigo5}" for="codigo5" />
+                    <h:inputText id="codigo5" value="#{codigoDiagnosticoController.selected.codigo5}" title="#{bundle.CreateCodigoDiagnosticoTitle_codigo5}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_diagnostico5}" for="diagnostico5" />
+                    <h:inputText id="diagnostico5" value="#{codigoDiagnosticoController.selected.diagnostico5}" title="#{bundle.CreateCodigoDiagnosticoTitle_diagnostico5}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_codigo6}" for="codigo6" />
+                    <h:inputText id="codigo6" value="#{codigoDiagnosticoController.selected.codigo6}" title="#{bundle.CreateCodigoDiagnosticoTitle_codigo6}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_diagnostico6}" for="diagnostico6" />
+                    <h:inputText id="diagnostico6" value="#{codigoDiagnosticoController.selected.diagnostico6}" title="#{bundle.CreateCodigoDiagnosticoTitle_diagnostico6}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_codigo7}" for="codigo7" />
+                    <h:inputText id="codigo7" value="#{codigoDiagnosticoController.selected.codigo7}" title="#{bundle.CreateCodigoDiagnosticoTitle_codigo7}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_diagnostico}" for="diagnostico" />
+                    <h:inputText id="diagnostico" value="#{codigoDiagnosticoController.selected.diagnostico}" title="#{bundle.CreateCodigoDiagnosticoTitle_diagnostico}" />
+                    <h:outputLabel value="#{bundle.CreateCodigoDiagnosticoLabel_casoIdCaso}" for="casoIdCaso" />
+                    <h:selectOneMenu id="casoIdCaso" value="#{codigoDiagnosticoController.selected.casoIdCaso}" title="#{bundle.CreateCodigoDiagnosticoTitle_casoIdCaso}" required="true" requiredMessage="#{bundle.CreateCodigoDiagnosticoRequiredMessage_casoIdCaso}">
+                        <f:selectItems value="#{casoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{codigoDiagnosticoController.create}" value="#{bundle.CreateCodigoDiagnosticoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{codigoDiagnosticoController.prepareList}" value="#{bundle.CreateCodigoDiagnosticoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCodigoDiagnosticoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
