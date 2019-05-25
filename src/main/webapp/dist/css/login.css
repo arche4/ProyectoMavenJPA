@@ -1,0 +1,119 @@
+/* 
+    Document   : login
+    Created on : 31/05/2017, 10:39:41 AM
+    Author     : jorge.lopez.torr
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body, html {
+    height: 100%;
+    min-height: 500px;
+    min-width: 500px
+}
+
+@media (max-width: 820px) {
+    .contLe {
+        width: 100%
+    } 
+    .contRi {
+        width: 0%;
+    }
+}
+
+.contLe{
+    border-right: #002852 solid 4px
+}
+
+.contRi{
+    background-image: url('../img/Reporting.png');
+    background-repeat: no-repeat;
+    background-position: right; 
+    
+}
+
+.contLe, .contRi{
+	-webkit-transition: all 500ms ease;
+	-moz-transition: all 500ms ease;
+	-ms-transition: all 500ms ease;
+	-o-transition: all 500ms ease;
+	transition: all 500ms ease;
+        height: 100%;
+        padding: 0
+}
+
+#iconLog{
+    position: absolute;
+    bottom: 20%
+}
+
+#formLog{
+    height: 250px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto
+}
+
+#minLog{
+    max-width: 200px;
+    display: block;
+    margin: auto
+}
+
+.display-table{
+    display: table;
+    table-layout: fixed;
+    width: 100%
+}
+
+.display-cell{
+    display: table-cell;
+    vertical-align: middle;
+    float: none
+}
+
+#textApp{
+    font-family: 'Verdana', sans-serif;
+    max-width: 220px;
+    text-align: center;
+    color: rgb(113,113,112)
+}
+
+#formSect{
+    margin: 0;
+    margin-top: 30px
+}
+
+#fmUser, #fmPass{
+    width: 450px;
+    border-radius: 20px;
+}  
+
+#btnLog{
+    margin-left: 380px;
+    background-color: #002855;
+    border-color: #002855;
+    border-radius: 20px
+}
+
+#btnErr{
+    color: #fff;
+    background-color: #002855;
+    border-color: #002855;
+    border-radius: 20px
+}
+
+.close{
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0 1px 0 #002852
+}
+
+.close:hover{
+    color: #fff;
+    opacity: 0.5
+}
+
+.modal{
+    min-width: 500px
+}
