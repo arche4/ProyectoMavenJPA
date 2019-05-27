@@ -156,7 +156,9 @@ public class UsuarioJpaController implements Serializable {
             return usuario;
         } finally {
             em.close();
+            return usuario;
         }
+      
     }
 
 
