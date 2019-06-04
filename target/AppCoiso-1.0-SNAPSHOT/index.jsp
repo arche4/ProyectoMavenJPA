@@ -15,6 +15,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <!-- Page style -->
+   
     <link rel="stylesheet" href="dist/css/login.css">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
@@ -34,7 +35,7 @@
 <body>
     <div class="wrapper">
         <div class="row" style="height: 100%; overflow: auto; overflow-x: hidden">
-            <div class="col-xs-7 contLe">
+            <div class="col-xs-7 contLe" style="padding-top: 17em;">
                 <div id="formLog">
                     <div class="row display-table">
                         <div class="col-xs-6 display-cell" style="border-right: #002852 solid 3px; height: 100%">
@@ -68,6 +69,7 @@
             </div>
         </div>
     </div>
+                            
 </body>
 
 </html>
